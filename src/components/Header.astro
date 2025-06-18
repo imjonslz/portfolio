@@ -1,0 +1,46 @@
+---
+import "../styles/css-components/header.css";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header">
+  <nav>
+    <a href="/" class="logo"
+      ><figure>
+        <img src="/logoJS.svg" alt="Logo de Jonathan Salazar" />
+      </figure></a
+    >
+    <ul class="nav-links">
+      <li>
+        <a
+          href="/about"
+          class={`link ${currentPath === "/about" ? "active" : ""}`}>Sobre mi</a
+        >
+      </li>
+      <li>
+        <a
+          href="/projects"
+          class={`link ${currentPath === "/projects" ? "active" : ""}`}
+          >Proyectos</a
+        >
+      </li>
+      <li>
+        <a
+          href="/contact"
+          class={`link ${currentPath === "/contact" ? "active" : ""}`}
+          >Contáctame</a
+        >
+      </li>
+      <li>
+        <a
+          href="../../public/CV2021(ING) - Jonathan Salazar.pdf"
+          target="_blank"
+          class="button"
+        >
+          Resumen / CV</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>

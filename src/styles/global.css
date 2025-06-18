@@ -1,0 +1,75 @@
+@import "./variables.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--color-bg);
+  color: var(--color-primary-text);
+  font-family: var(--font-family-body, "Poppins"), sans-serif;
+  font-weight: var(--font-weight-body, 400);
+  font-style: var(--font-style-body, normal);
+}
+
+/* Mejora para imágenes y medios */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Tipografía base */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  overflow-wrap: break-word;
+}
+
+/* Inputs sin estilos por defecto */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Elimina estilos de listas */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Root font size para usar rem fácilmente */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}

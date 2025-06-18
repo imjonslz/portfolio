@@ -1,0 +1,16 @@
+---
+import { ChevronDown } from "lucide-astro";
+import "../styles/css-components/hero.css";
+
+const { title, subtitle } = Astro.props;
+---
+
+<section id="hero">
+  <div class="wrapper">
+    <h2>{subtitle}</h2>
+    <h1>{title}</h1>
+  </div>
+  <div class="icon-wrapper">
+    <ChevronDown size={24} color="black" />
+  </div>
+</section>
