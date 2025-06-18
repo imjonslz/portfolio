@@ -51,7 +51,7 @@ nav {
   align-items: center;
   font-weight: 500;
   background-color: var(--color-accent);
-  color: var(--color-primary-text);
+  color: var(--color-bg);
   padding: 0 1.5rem;
   height: 40px;
   border-radius: var(--radius-lg);

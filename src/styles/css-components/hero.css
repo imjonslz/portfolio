@@ -44,3 +44,14 @@ h1 {
 #hero .icon-wrapper:hover {
   background-color: var(--color-accent);
 }
+
+.icon-scroll-dwn{
+  color: var(--color-primary-text);
+  transition: color 0.5s ease;
+}
+
+
+#hero .icon-wrapper:hover .icon-scroll-dwn {
+  color: var(--color-bg);
+}
+
