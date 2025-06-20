@@ -7,7 +7,9 @@ footer {
   color: var(--color-bg);
 }
 
-span.footer-text {
-  font-size: 14px;
-  line-height: 20px;
+.footer-text {
+  text-align: center;
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  line-height: 1.1;
+  padding: 0 3rem;
 }

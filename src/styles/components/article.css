@@ -1,0 +1,62 @@
+.article-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.article-image {
+  flex-shrink: 0;
+}
+
+.article-image img {
+  width: 100%;
+  height: auto;
+  max-width: 868px;
+  border-radius: 2.5rem;
+  object-fit: cover;
+  display: block;
+}
+
+.article-text {
+  position: absolute;
+  left: 25%;
+  top: 60%;
+  max-width: 45%;
+}
+
+.article-title {
+  font-family: "Gravitas One", serif;
+  font-size: clamp(2.5rem, 7vw, 7.5rem);
+  line-height: 1.1;
+}
+
+.article-subtitle {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .article-text {
+    position: static;
+    text-align: center;
+    max-width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .article-title {
+    font-size: 2rem;
+  }
+
+  .article-subtitle {
+    font-size: 1rem;
+  }
+
+  .article-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}

@@ -1,6 +1,15 @@
 ---
+import projectPhoto1 from "../assets/images/projects/proyecto1.jpg";
+import projectPhoto2 from "../assets/images/projects/proyecto2.jpg";
+import aboutPhoto from "../assets/images/about/yo.jpg";
+
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import Article from "../components/Article.astro";
+import AboutMe from "../components/AboutMe.astro";
+
+import { Github, Linkedin } from "lucide-astro";
+import "../styles/pages/index.css";
 ---
 
 <Layout title="Jonathan Salazar">
@@ -9,5 +18,58 @@ import Hero from "../components/Hero.astro";
       title="Jonathan Salazar"
       subtitle="Diseñador de Producto y Desarrollador Front-End"
     />
+    <AboutMe
+      description="Lidero proyectos y diseño procesos que conectan a los equipos de diseño y desarrollo, promoviendo acuerdos que mejoran la colaboración entre equipos."
+      btnHref="/about"
+      btnLabel="Más sobre mí"
+      btnIconSwitch={true}
+      btnDirection="right"
+      figcaption="En el evento UX 2025 del Banco Hipotecario"
+      srcImg={aboutPhoto.src}
+      altImg="Jonathan Salazar en un evento UX"
+    />
+    <section id="projects">
+      <h2 class="title">Proyectos recientes</h2>
+      <Article
+        title="Color Checker"
+        subtitle="UI Design - Development"
+        imgSrc={projectPhoto1}
+        imgAlt="Proyecto de diseño de producto"
+        width={868}
+        height={580}
+      />
+      <Article
+        title="Sigue tú Inversión"
+        subtitle="Web Design - Development"
+        imgSrc={projectPhoto2}
+        imgAlt="Proyecto de diseño de producto"
+        width={868}
+        height={580}
+      />
+    </section>
+    <section id="contact">
+      <p>¿Tienes un proyecto en mente?</p>
+      <div class="wrapper-contact">
+        <a class="button" href="/contact">Contáctame</a>
+        <ul>
+          <li>
+            <a
+              aria-label="Ir a linkedIn"
+              class="icon-wrapper"
+              href="https://www.linkedin.com/in/jonslz/"
+              target="_blank"><Linkedin class="icon" /></a
+            >
+          </li>
+          <li>
+            <a
+              aria-label="Ir a GitHub"
+              class="icon-wrapper"
+              href="https://github.com/imjonslz"
+              target="_blank"><Github class="icon" /></a
+            >
+          </li>
+        </ul>
+      </div>
+    </section>
   </main>
 </Layout>

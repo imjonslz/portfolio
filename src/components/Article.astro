@@ -1,0 +1,29 @@
+---
+import "../styles/components/article.css";
+
+const {
+  title = "Sin título",
+  subtitle = "Sin descripción",
+  imgSrc,
+  imgAlt = "Imagen de proyecto",
+  width = imgSrc.width,
+  height = imgSrc.height,
+} = Astro.props;
+---
+
+<article class="article-container">
+  <figure class="article-image">
+    <img
+      src={imgSrc.src}
+      alt={imgAlt}
+      width={width}
+      height={height}
+      loading="lazy"
+    />
+  </figure>
+
+  <div class="article-text">
+    <h3 class="article-title">{title}</h3>
+    <p class="article-subtitle">{subtitle}</p>
+  </div>
+</article>

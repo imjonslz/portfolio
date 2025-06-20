@@ -1,13 +1,47 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
+import { Linkedin, Github } from "lucide-astro";
+
+import "../styles/pages/contact.css";
 ---
 
 <Layout title="Contacto">
   <main class="container">
-    <Hero
-      title="Contacto"
-      subtitle="Diseñador de Producto y Desarrollador Front-End"
-    />
+    <section id="contact">
+      <div class="wrapper-text">
+        <p>
+          Desde Argentina, colaboro con equipos de habla hispana para crear <strong
+            class="accent"
+          >
+            experiencias digitales qué conectan.
+          </strong>
+        </p>
+        <p>¿Tienes un proyecto en mente?</p>
+      </div>
+
+      <div class="wrapper-contact">
+        <a class="button" href="mailto:im.jonslz@gmail.com"
+          >Envíame un mensaje</a
+        >
+        <ul>
+          <li>
+            <a
+              aria-label="Ir a linkedIn"
+              class="icon-wrapper"
+              href="https://www.linkedin.com/in/jonslz/"
+              target="_blank"><Linkedin class="icon" /></a
+            >
+          </li>
+          <li>
+            <a
+              aria-label="Ir a GitHub"
+              class="icon-wrapper"
+              href="https://github.com/imjonslz"
+              target="_blank"><Github class="icon" /></a
+            >
+          </li>
+        </ul>
+      </div>
+    </section>
   </main>
 </Layout>

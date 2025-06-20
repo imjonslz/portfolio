@@ -1,0 +1,12 @@
+---
+import { MoveRight, MoveLeft } from "lucide-astro";
+import "../styles/components/ghost-btn.css";
+
+const { href, label, icon = true, direction = "right" } = Astro.props;
+---
+
+<a class="ghost-btn" href={href}>
+  {icon && direction === "left" && <MoveLeft />}
+  {label}
+  {icon && direction === "right" && <MoveRight />}
+</a>

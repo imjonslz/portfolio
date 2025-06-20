@@ -52,17 +52,33 @@ nav {
   font-weight: 500;
   background-color: var(--color-accent);
   color: var(--color-bg);
-  padding: 0 1.5rem;
-  height: 40px;
+  padding: 0 1.5em;
+  height: 2.5rem;
   border-radius: var(--radius-lg);
-  box-shadow: -1px 4px 0px var(--color-shadows);
   transition: background-color 0.5s ease;
-  transition: box-shadow 0.5s ease;
 }
 
 .button:hover {
   background-color: var(--color-primary-text);
-  box-shadow: -1px 4px 0px var(--color-accent);
   color: var(--color-bg);
   font-weight: 500;
+}
+
+.logo {
+  transition: color 0.5s ease;
+}
+
+.logo:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+  }
 }

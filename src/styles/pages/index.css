@@ -1,0 +1,65 @@
+#projects h2 {
+  text-align: center;
+  font-family: "Gravitas One", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 7.5rem;
+  line-height: 128px;
+  margin: 3rem 0;
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 90%;
+  max-width: 1360px;
+  margin: auto;
+  gap: 2.5rem;
+}
+
+#contact p {
+  text-align: center;
+  font-size: clamp(1.25rem, 6vw, 3rem);
+  line-height: 1.5;
+  padding: 0 1rem;
+}
+
+.wrapper-contact {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.wrapper-contact ul {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  list-style: none;
+}
+
+#contact .icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 16px;
+  transition: background-color 0.5s ease;
+}
+
+#contact .icon-wrapper:hover {
+  background-color: var(--color-accent);
+}
+
+.icon {
+  color: var(--color-primary-text);
+  transition: color 0.5s ease;
+}
+
+#contact .icon-wrapper:hover .icon {
+  color: var(--color-bg);
+}
