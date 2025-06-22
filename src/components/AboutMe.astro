@@ -14,8 +14,8 @@ const {
 } = Astro.props;
 ---
 
-<section id="about">
-  <div class="wrapper-content">
+<section aria-label="Pequeña introducción sobre mí" id="about">
+  <article class="wrapper-content">
     <p>{description}</p>
     <GhostButton
       href={btnHref}
@@ -23,7 +23,7 @@ const {
       icon={btnIconSwitch}
       direction={btnDirection}
     />
-  </div>
+  </article>
   <figure class="wrapper-img">
     <figcaption>{figcaption}</figcaption>
     <img class="about-img" src={srcImg} alt={altImg} loading="lazy" />

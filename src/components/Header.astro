@@ -1,4 +1,5 @@
 ---
+import { Menu, X } from "lucide-astro";
 import "../styles/components/header.css";
 
 const currentPath = Astro.url.pathname;
@@ -6,10 +7,9 @@ const currentPath = Astro.url.pathname;
 
 <header class="header">
   <nav role="navigation" aria-label="Menú principal">
-    <a href="/" class="logo" aria-label="Ir al inicio">
+    <a href="/" aria-label="Ir al inicio">
       <svg
-        width="48"
-        height="48"
+        class="logo"
         viewBox="0 0 48 48"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,20 @@ const currentPath = Astro.url.pathname;
           fill="currentColor"></path>
       </svg>
     </a>
-    <ul class="nav-links">
+    <button
+      id="menu-toggle"
+      aria-expanded="false"
+      aria-controls="main-menu"
+      aria-label="Abrir menú de navegación"
+    >
+      <span class="icon-menu" id="iconMenu">
+        <Menu />
+      </span>
+      <span class="icon-close" id="iconClose">
+        <X />
+      </span>
+    </button>
+    <ul class="nav-links" id="main-menu">
       <li>
         <a
           href="/about"
@@ -56,4 +69,21 @@ const currentPath = Astro.url.pathname;
       </li>
     </ul>
   </nav>
+
+  <script type="module">
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("main-menu");
+    const iconMenu = document.getElementById("iconMenu");
+    const iconClose = document.getElementById("iconClose");
+
+    if (toggle && menu && iconMenu && iconClose) {
+      toggle.addEventListener("click", () => {
+        const isOpen = menu.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", isOpen);
+
+        iconMenu.style.display = isOpen ? "none" : "flex";
+        iconClose.style.display = isOpen ? "flex" : "none";
+      });
+    }
+  </script>
 </header>
