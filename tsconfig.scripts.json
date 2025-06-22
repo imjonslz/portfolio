@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "public/scripts/components",
+    "rootDir": "src/scripts/components",
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "noEmit": false,
+    "allowImportingTsExtensions": false
+  },
+  "include": [
+    "src/scripts/components/**/*.ts"
+  ]
+}

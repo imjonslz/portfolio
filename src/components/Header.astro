@@ -70,20 +70,5 @@ const currentPath = Astro.url.pathname;
     </ul>
   </nav>
 
-  <script type="module">
-    const toggle = document.getElementById("menu-toggle");
-    const menu = document.getElementById("main-menu");
-    const iconMenu = document.getElementById("iconMenu");
-    const iconClose = document.getElementById("iconClose");
-
-    if (toggle && menu && iconMenu && iconClose) {
-      toggle.addEventListener("click", () => {
-        const isOpen = menu.classList.toggle("open");
-        toggle.setAttribute("aria-expanded", isOpen);
-
-        iconMenu.style.display = isOpen ? "none" : "flex";
-        iconClose.style.display = isOpen ? "flex" : "none";
-      });
-    }
-  </script>
+  <script src="/scripts/components/header.js" type="module"></script>
 </header>
