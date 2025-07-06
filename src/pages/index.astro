@@ -10,14 +10,15 @@ import AboutMe from "../components/AboutMe.astro";
 
 import { Github, Linkedin } from "lucide-astro";
 import "../styles/pages/index.css";
+import ScrollTitle from "../components/ScrollTitle.astro";
 ---
 
-<Layout title="Jonathan Salazar">
+<Layout
+  titlePage="Jonathan Salazar"
+  heroTitle="Jonathan Salazar"
+  heroSubtitle="Diseñador de Producto y Desarrollador Front-End"
+>
   <main class="container">
-    <Hero
-      title="Jonathan Salazar"
-      subtitle="Diseñador de Producto y Desarrollador Front-End"
-    />
     <AboutMe
       description="Lidero proyectos y diseño procesos que conectan a los equipos de diseño y desarrollo, promoviendo acuerdos que mejoran la colaboración entre equipos."
       btnHref="/about"
@@ -29,7 +30,8 @@ import "../styles/pages/index.css";
       altImg="Jonathan Salazar en un evento UX"
     />
     <section id="projects">
-      <h2 class="title">Proyectos recientes</h2>
+      <ScrollTitle scrollTitle="Proyectos recientes - Proyectos recientes" />
+
       <Article
         title="Color Checker"
         subtitle="UI Design - Development"

@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 5rem);
+  height: 100vh;
   width: 90%;
   max-width: 1360px;
   margin: auto;
@@ -23,6 +23,11 @@ h1 {
   font-family: "Gravitas One", serif;
   font-size: clamp(2.5rem, 7vw, 7.5rem);
   line-height: 1.1;
+}
+
+.heroSubtitle {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
 }
 
 #hero .icon-wrapper {
