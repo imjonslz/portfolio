@@ -2,11 +2,20 @@
 import { MoveRight, MoveLeft } from "lucide-astro";
 import "../styles/components/ghost-btn.css";
 
-const { href, label, icon = true, direction = "right" } = Astro.props;
+const { href, label, icon, direction, class: customClass } = Astro.props;
+
+const showLeftIcon = icon && direction === "left";
+const showRightIcon = icon && direction === "right";
+
+const currentPath = Astro.url.pathname;
 ---
 
-<a class="ghost-btn" href={href}>
-  {icon && direction === "left" && <MoveLeft />}
+<a
+  href={href}
+  class={`ghost-btn ${currentPath === href ? "active" : ""} ${customClass || ""}`}
+  aria-current={currentPath === href ? "page" : undefined}
+>
+  {showLeftIcon && <MoveLeft />}
   {label}
-  {icon && direction === "right" && <MoveRight />}
+  {showRightIcon && <MoveRight />}
 </a>

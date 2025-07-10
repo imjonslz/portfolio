@@ -28,7 +28,7 @@ nav {
 }
 
 .logo:hover {
-  color: var(--color-accent);
+  color: var(--color-accent) !important;
 }
 
 /* === Menu toggle  (Button) === */
@@ -61,81 +61,46 @@ nav {
 
 /* === Mobile menu === */
 .nav-links {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
+  transform: translateY(-100%);
   background-color: var(--color-primary-text);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
+  z-index: 50;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
   list-style: none;
-
-  transform: translateY(-100%);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.6s ease, opacity 0.4s ease;
-  z-index: 999;
 }
 
-.nav-links.open {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
+.no-scroll {
+  overflow: hidden;
+  height: 100vh; /* opcional si querés asegurarte */
 }
 
 /* === Nav links === */
+li {
+  width: 50%;
+}
+
 .link {
-  position: relative;
-  display: inline-block;
-  font-weight: 400;
-  text-decoration: none;
-  transition: color 0.3s ease;
   color: var(--color-bg);
-}
-
-.link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px; /* distancia entre texto y línea */
-  width: 45%;
-  height: 5px; /* grosor de la línea */
-  background-color: var(--color-accent);
-  border-radius: 9999px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease-in-out;
-}
-
-.link:hover::after,
-.link.active::after {
-  transform: scaleX(1);
-}
-
-.link.active {
-  font-weight: 500;
 }
 
 /* === CV button === */
 .button {
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  background-color: var(--color-accent);
-  color: var(--color-bg);
-  padding: 0 1.5em;
-  height: 2.5rem;
-  border-radius: var(--radius-lg);
-  transition: background-color 0.5s ease;
+  width: fit-content;
 }
 
 .button:hover {
-  background-color: var(--color-primary-text);
-  color: var(--color-bg);
+  background-color: var(--color-bg);
+  color: var(--color-primary-text);
 }
 
 /* === Desktop layout === */
@@ -150,16 +115,18 @@ nav {
 
   .nav-links {
     position: static;
+    transform: none !important;
     height: auto;
-    width: auto;
     flex-direction: row;
-    opacity: 1;
-    transform: none;
-    align-items: center;
+    justify-content: flex-end;
     background-color: transparent;
-    pointer-events: auto;
+    border-radius: 0;
     gap: var(--space-lg);
-    transition: none;
+  }
+  .nav-links li {
+    opacity: 1 !important;
+    transform: none !important;
+    width: auto;
   }
 
   .link {
@@ -169,5 +136,10 @@ nav {
   .logo {
     width: 48px;
     height: 48px;
+  }
+
+  .button:hover {
+    background-color: var(--color-primary-text);
+    color: var(--color-bg);
   }
 }

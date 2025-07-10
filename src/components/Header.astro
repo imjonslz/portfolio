@@ -1,15 +1,17 @@
 ---
 import { Menu, X } from "lucide-astro";
-import "../styles/components/header.css";
+import GhostButton from "./GhostButton.astro";
+import Button from "./Button.astro";
 
-const currentPath = Astro.url.pathname;
+import "../styles/components/header.css";
 ---
 
-<header class="header">
+<header class="header" id="site-header">
   <nav role="navigation" aria-label="Menú principal">
-    <a href="/" aria-label="Ir al inicio">
+    <a class="wrapper-logo" id="wrapperLogo" href="/" aria-label="Ir al inicio">
       <svg
         class="logo"
+        id="logoSvg"
         viewBox="0 0 48 48"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -34,41 +36,86 @@ const currentPath = Astro.url.pathname;
     </button>
     <ul class="nav-links" id="main-menu">
       <li>
-        <a
-          href="/about"
-          class={`link ${currentPath === "/about" ? "active" : ""}`}
-          aria-current={currentPath === "/about" ? "page" : undefined}
-          >Sobre mi</a
-        >
+        <GhostButton href="/about" label="Sobre mi" class="link" />
       </li>
       <li>
-        <a
-          href="/projects"
-          class={`link ${currentPath === "/projects" ? "active" : ""}`}
-          aria-current={currentPath === "/projects" ? "page" : undefined}
-          >Proyectos</a
-        >
+        <GhostButton href="/projects" label="Proyectos" class="link" />
+      </li>
+
+      <li>
+        <GhostButton href="/contact" label="Contáctame" class="link" />
       </li>
       <li>
-        <a
-          href="/contact"
-          class={`link ${currentPath === "/contact" ? "active" : ""}`}
-          aria-current={currentPath === "/contact" ? "page" : undefined}
-          >Contáctame</a
-        >
-      </li>
-      <li>
-        <a
+        <Button
           href="/CV_Jonathan_Salazar.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
+          label="Resumen / CV"
           class="button"
-        >
-          Resumen / CV</a
-        >
+        />
       </li>
     </ul>
   </nav>
 
-  <script src="/scripts/components/header.js" type="module"></script>
+  <script>
+    import gsap from "gsap";
+
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("main-menu");
+    const items = menu?.querySelectorAll("li");
+    const iconMenu = document.getElementById("iconMenu");
+    const iconClose = document.getElementById("iconClose");
+    const wrapperLogo = document.getElementById("wrapperLogo");
+    const logoSvg = document.getElementById("logoSvg");
+
+    let isOpen = false;
+
+    // Timeline GSAP
+    const tl = gsap.timeline({ paused: true });
+
+    tl.to(menu, {
+      y: 0,
+      duration: 0.4,
+      ease: "power2.out",
+      borderBottomLeftRadius: "0px",
+      borderBottomRightRadius: "0px",
+    }).from(
+      items ?? [],
+      {
+        y: 20,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 0.2,
+        ease: "power2.out",
+      },
+      "-=0.2"
+    );
+
+    // Toggle de menú
+    toggle?.addEventListener("click", () => {
+      isOpen = !isOpen;
+      toggle.setAttribute("aria-expanded", String(isOpen));
+
+      if (isOpen) {
+        tl.play();
+      } else {
+        tl.reverse();
+      }
+
+      // Cuando menu isOpen, se evita scroll en el body
+      document.body.classList.toggle("no-scroll", isOpen);
+
+      // alternar iconos si los usás
+      if (iconMenu && iconClose) {
+        iconMenu.style.display = isOpen ? "none" : "flex";
+        iconClose.style.display = isOpen ? "flex" : "none";
+      }
+
+      // Cambiar color del logo y z-index
+      if (wrapperLogo && logoSvg) {
+        wrapperLogo.style.zIndex = isOpen ? "1000" : "1";
+        logoSvg.style.color = isOpen
+          ? "var(--color-bg)"
+          : "var(--color-primary-text)";
+      }
+    });
+  </script>
 </header>
