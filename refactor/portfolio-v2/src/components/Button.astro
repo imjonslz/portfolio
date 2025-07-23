@@ -1,0 +1,14 @@
+---
+import "../styles/components/button.css";
+
+const { href, label, class: customClass } = Astro.props;
+const isExternal = href.startsWith("http") || href.endsWith(".pdf");
+---
+
+<a
+  href={href}
+  class={`button ${customClass || ""}`}
+  {...isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {}}
+>
+  {label}
+</a>

@@ -1,0 +1,27 @@
+---
+import "../styles/base/reset.css";
+import Header from "../sections/Header.astro";
+import Footer from "../sections/Footer.astro";
+
+import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/700.css";
+
+const { titlePage } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{titlePage}</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,13 @@
+---
+import "../styles/components/hero.css";
+import "@fontsource/gravitas-one";
+
+const { title, subtitle } = Astro.props;
+---
+
+<section id="hero">
+  <div class="wrapper">
+    <span class="heroSubtitle">{subtitle}</span>
+    <h1 class="title">{title}</h1>
+  </div>
+</section>

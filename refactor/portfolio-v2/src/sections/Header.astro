@@ -1,0 +1,126 @@
+---
+import Button from "../components/Button.astro";
+import GhostButton from "../components/GhostButton.astro";
+import BarsIcon from "../icon/BarsIcon.astro";
+import XMarkIcon from "../icon/XMarkIcon.astro";
+import "../styles/components/header.css";
+---
+
+<header class="header" id="site-header">
+  <nav role="navigation" aria-label="Menú principal">
+    <a class="wrapper-logo" id="wrapperLogo" href="/" aria-label="Ir al inicio">
+      <svg
+        class="logo"
+        id="logoSvg"
+        viewBox="0 0 48 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M37.123 29.1484H37.124V38.5146L24 46.1787L10.876 38.5146V27.4453C14.6168 27.4453 17.6493 30.517 17.6494 34.2578L24 38.0889L30.3496 34.2578V28.2969H20.1895V21.4844H37.123V29.1484ZM37.124 9.45801V18.791H35.4414C32.6298 18.791 30.3507 16.5118 30.3506 13.7002L24 9.88184L17.6494 13.7002V18.791H10.876V9.45801L24 1.82129L37.124 9.45801Z"
+          fill="currentColor"></path>
+      </svg>
+    </a>
+    <button
+      id="menu-toggle"
+      aria-expanded="false"
+      aria-controls="main-menu"
+      aria-label="Abrir menú de navegación"
+    >
+      <span class="icon-menu" id="iconMenu"> <BarsIcon /> </span>
+      <span class="icon-close" id="iconClose"> <XMarkIcon /> </span>
+    </button>
+    <ul class="nav-links" id="main-menu">
+      <li>
+        <GhostButton href="/about" label="Sobre mi" icon={false} class="link" />
+      </li>
+      <li>
+        <GhostButton
+          href="/projects"
+          label="Proyectos"
+          icon={false}
+          class="link"
+        />
+      </li>
+      <li>
+        <GhostButton
+          href="/contact"
+          label="Contáctame"
+          icon={false}
+          class="link"
+        />
+      </li>
+      <li>
+        <Button
+          href="/CV_Jonathan_Salazar.pdf"
+          label="Resumen / CV"
+          class="button"
+        />
+      </li>
+    </ul>
+  </nav>
+
+  <script>
+    import gsap from "gsap";
+
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("main-menu");
+    const items = menu?.querySelectorAll("li");
+    const iconMenu = document.getElementById("iconMenu");
+    const iconClose = document.getElementById("iconClose");
+    const wrapperLogo = document.getElementById("wrapperLogo");
+    const logoSvg = document.getElementById("logoSvg");
+
+    let isOpen = false;
+
+    // Timeline GSAP
+    const tl = gsap.timeline({ paused: true });
+
+    tl.to(menu, {
+      y: 0,
+      duration: 0.4,
+      ease: "power2.out",
+      borderBottomLeftRadius: "0px",
+      borderBottomRightRadius: "0px",
+    }).from(
+      items ?? [],
+      {
+        y: 20,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 0.2,
+        ease: "power2.out",
+      },
+      "-=0.2"
+    );
+
+    // Toggle de menú
+    toggle?.addEventListener("click", () => {
+      isOpen = !isOpen;
+      toggle.setAttribute("aria-expanded", String(isOpen));
+
+      if (isOpen) {
+        tl.play();
+      } else {
+        tl.reverse();
+      }
+
+      // Cuando menu isOpen, se evita scroll en el body
+      document.body.classList.toggle("no-scroll", isOpen);
+
+      // alternar iconos si los usás
+      if (iconMenu && iconClose) {
+        iconMenu.style.display = isOpen ? "none" : "flex";
+        iconClose.style.display = isOpen ? "flex" : "none";
+      }
+
+      // Cambiar color del logo y z-index
+      if (wrapperLogo && logoSvg) {
+        wrapperLogo.style.zIndex = isOpen ? "1000" : "1";
+        logoSvg.style.color = isOpen
+          ? "var(--color-bg)"
+          : "var(--color-primary-text)";
+      }
+    });
+  </script>
+</header>

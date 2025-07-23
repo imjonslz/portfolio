@@ -1,0 +1,22 @@
+---
+import ArrowLeftIcon from "../icon/ArrowLeftIcon.astro";
+import ArrowRightIcon from "../icon/ArrowRightIcon.astro";
+import "../styles/components/ghost-btn.css";
+
+const { href, label, icon, direction, class: customClass } = Astro.props;
+
+const showLeftIcon = icon && direction === "left";
+const showRightIcon = icon && direction === "right";
+
+const currentPath = Astro.url.pathname;
+---
+
+<a
+  href={href}
+  class={`ghost-btn ${currentPath === href ? "active" : ""} ${customClass || ""}`}
+  aria-current={currentPath === href ? "page" : undefined}
+>
+  {showLeftIcon && <ArrowLeftIcon />}
+  {label}
+  {showRightIcon && <ArrowRightIcon />}
+</a>

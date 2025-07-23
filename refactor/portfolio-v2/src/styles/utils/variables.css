@@ -1,0 +1,26 @@
+:root {
+  /* 🎨 Colores */
+  --color-accent: #eb5e28;
+  --color-bg: #252422;
+  --color-primary-text: #fffcf2;
+  --color-shadows: #ccc5b9;
+
+  /*🖋️ Tipografía */
+  --font-family-body: "Poppins", sans-serif;
+  --font-family-heading: "Gravitas One", serif;
+
+  /* Spacing */
+  --space-025: 0.25rem;
+  --space-05: 0.5rem;
+  --space-075: 0.75rem;
+  --space-1: 1rem;
+  --space-15: 1.5rem;
+  --space-2: 2rem;
+  --space-3: 3rem;
+
+  /* Border radius */
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-16: 16px;
+  --radius-full: 9999px;
+}

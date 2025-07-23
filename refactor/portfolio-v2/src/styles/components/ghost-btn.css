@@ -1,0 +1,29 @@
+.ghost-btn {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  width: fit-content;
+}
+
+.ghost-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* distancia entre texto y línea */
+  width: 40%;
+  height: 5px; /* grosor de la línea */
+  background-color: var(--color-accent);
+  border-radius: 9999px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.ghost-btn:hover::after,
+.ghost-btn.active::after {
+  transform: scaleX(1);
+}
+
+.ghost-btn.active {
+  font-weight: 500;
+}
