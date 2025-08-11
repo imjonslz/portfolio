@@ -22,6 +22,7 @@ import "../styles/components/header.css";
       </svg>
     </a>
     <button
+      type="button"
       id="menu-toggle"
       aria-expanded="false"
       aria-controls="main-menu"
@@ -122,5 +123,31 @@ import "../styles/components/header.css";
           : "var(--color-primary-text)";
       }
     });
-  </script>
+
+    // Cerrar menú con animación al navegar desde un enlace (solo mobile)
+const navLinks = menu?.querySelectorAll("a");
+navLinks?.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    if (window.innerWidth < 1280 && isOpen) {
+      e.preventDefault();
+      tl.reverse();
+      document.body.classList.remove("no-scroll");
+      if (iconMenu && iconClose) {
+        iconMenu.style.display = "flex";
+        iconClose.style.display = "none";
+      }
+      if (wrapperLogo && logoSvg) {
+        wrapperLogo.style.zIndex = "1";
+        logoSvg.style.color = "var(--color-primary-text)";
+      }
+      isOpen = false;
+      toggle?.setAttribute("aria-expanded", "false");
+      // Espera a que termine la animación antes de navegar
+      tl.eventCallback("onReverseComplete", () => {
+         window.location.href = link.href;
+      });
+    }
+  });
+});
+</script>
 </header>
