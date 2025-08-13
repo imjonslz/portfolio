@@ -8,6 +8,9 @@
   /*🖋️ Tipografía */
   --font-family-body: "Poppins", sans-serif;
   --font-family-heading: "Gravitas One", serif;
+  --font-weight-regualar: 300;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
 
   /* Spacing */
   --space-025: 0.25rem;

@@ -1,0 +1,31 @@
+---
+import "../styles/components/scroll-title.css";
+const { scrollTitle } = Astro.props;
+---
+
+<section class="scroll-title-wrapper">
+  <h1 class="scroll-title">{scrollTitle}</h1>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const title = document.querySelector(".scroll-title");
+
+  if (title) {
+    gsap.to(title, {
+      x: "-40vw", // se desplaza hacia la izquierda
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".scroll-title-wrapper",
+        start: "bottom bottom", // cuando la sección entra al centro
+        end: "bottom top", // cuando la sección termina de salir
+        scrub: 3, // suaviza el desplazamiento (mayor número = más suave)
+        markers: false,
+      },
+    });
+  }
+</script>

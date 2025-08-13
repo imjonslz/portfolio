@@ -3,6 +3,7 @@
   gap: 1rem;
   position: relative;
   width: fit-content;
+  color: var(--color-text);
 }
 
 .ghost-btn::after {
@@ -25,5 +26,5 @@
 }
 
 .ghost-btn.active {
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 }

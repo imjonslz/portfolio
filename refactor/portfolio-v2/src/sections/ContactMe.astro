@@ -1,0 +1,31 @@
+---
+import "../styles/components/contact-me.css";
+import Button from "../components/Button.astro";
+import LinkedinIcon from "../icon/LinkedinIcon.astro";
+import GithubIcon from "../icon/GithubIcon.astro";
+
+const { href, buttonLabel = "Label del botón" } = Astro.props;
+---
+
+<section id="contact-me">
+  <article class="wrapper-content">
+    <slot name="description" />
+    <div class="wrapper-cta">
+      <Button href={href} label={buttonLabel} />
+      <div class="wrapper-socials">
+        <a
+          href="https://www.linkedin.com/in/jonslz/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"><LinkedinIcon /></a
+        >
+        <a
+          href="https://github.com/imjonslz"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"><GithubIcon /></a
+        >
+      </div>
+    </div>
+  </article>
+</section>

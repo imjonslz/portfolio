@@ -1,6 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../sections/Hero.astro";
+import AboutMe from "../sections/AboutMe.astro";
+import aboutPhoto from "../assets/images/jon.webp";
+import ScrollTitle from "../components/ScrollTitle.astro";
+import ContactMe from "../sections/ContactMe.astro";
 ---
 
 <BaseLayout titlePage="Astro">
@@ -8,4 +12,20 @@ import Hero from "../sections/Hero.astro";
     title="Jonathan Salazar"
     subtitle="Diseñador de Producto y Desarrollador Front-End"
   />
+  <AboutMe
+    description="Lidero proyectos y diseño procesos que conectan a los equipos de diseño y desarrollo, promoviendo acuerdos que mejoran la colaboración entre equipos."
+    btnHref="/about"
+    btnLabel="Más sobre mí"
+    btnIconSwitch={true}
+    btnDirection="right"
+    figcaption="En el evento UX 2025 del Banco Hipotecario"
+    srcImg={aboutPhoto.src}
+    altImg="Jonathan Salazar en un evento UX"
+  />
+  <ScrollTitle scrollTitle="Proyectos recientes • Proyectos recientes" />
+  <ContactMe href="/contact" buttonLabel="Contáctame">
+    <span slot="description">
+      <p>¿Tienes un proyecto en mente?</p>
+    </span>
+  </ContactMe>
 </BaseLayout>

@@ -1,0 +1,64 @@
+#contact-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1360px;
+  margin: auto;
+}
+
+#contact-me .wrapper-content,
+#contact-me .wrapper-content span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 100%;
+  width: 100%;
+}
+
+#contact-me .wrapper-content p {
+  font-size: clamp(1rem, 0.28rem + 3.2vw, 3rem);
+  line-height: 1.5;
+  text-align: center;
+}
+
+#contact-me .wrapper-content p strong {
+  font-weight: var(--font-weight-medium);
+}
+
+.wrapper-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wrapper-socials {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wrapper-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-bg);
+  color: var(--color-primary-text);
+  border-radius: var(--radius-16);
+  transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.wrapper-socials a:hover {
+  background-color: var(--color-primary-text);
+  color: var(--color-bg);
+  box-shadow: inset -3px -4px 0 var(--color-accent);
+}

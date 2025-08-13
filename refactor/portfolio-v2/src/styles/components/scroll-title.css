@@ -1,0 +1,15 @@
+.scroll-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden; /* evita scroll horizontal */
+  padding: 0 4rem;
+}
+
+.scroll-title {
+  font-size: clamp(2.9rem, 7vw, 7.5rem);
+  line-height: 1.1;
+  font-family: "Gravitas One", serif;
+  white-space: nowrap;
+  will-change: transform;
+}

@@ -1,10 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactMe from "../sections/ContactMe.astro";
 ---
 
 <BaseLayout titlePage="Contact">
-  <main class="container">
-    <h1>Welcome to Astro</h1>
-    <p>This is a simple Astro page.</p>
-  </main>
+  <ContactMe href="mailto:_jonslz@gmail.com" buttonLabel="Envíame un mensaje">
+    <span slot="description">
+      <p>
+        Desde Argentina, colaboro con equipos de habla hispana para crear
+        <strong>experiencias digitales qué&nbsp;conectan.</strong>
+      </p>
+      <p>¿Te gustaría que trabajemos juntos?</p>
+    </span>
+  </ContactMe>
 </BaseLayout>

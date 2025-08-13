@@ -94,16 +94,6 @@ li {
   color: var(--color-bg);
 }
 
-/* === CV button === */
-.button {
-  width: fit-content;
-}
-
-.button:hover {
-  background-color: var(--color-bg);
-  color: var(--color-primary-text);
-}
-
 /* === Desktop layout === */
 @media (min-width: 1280px) {
   nav {
@@ -122,7 +112,7 @@ li {
     justify-content: flex-end;
     background-color: transparent;
     border-radius: 0;
-    gap: var(--space-1);
+    gap: var(--space-15);
   }
   .nav-links li {
     opacity: 1 !important;

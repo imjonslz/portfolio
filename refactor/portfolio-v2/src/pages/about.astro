@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../sections/Hero.astro";
+import ContactMe from "../sections/ContactMe.astro";
 ---
 
 <BaseLayout titlePage="About">
@@ -8,4 +9,9 @@ import Hero from "../sections/Hero.astro";
     title="Del diseño, al código"
     subtitle="Diseñador de Producto y Desarrollador Front-End"
   />
+  <ContactMe href="/contact" buttonLabel="Contáctame">
+    <span slot="description">
+      <p>¿Tienes un proyecto en mente?</p>
+    </span>
+  </ContactMe>
 </BaseLayout>

@@ -1,0 +1,31 @@
+---
+import "../styles/components/about-me.css";
+import GhostButton from "../components/GhostButton.astro";
+
+const {
+  description,
+  btnHref,
+  btnLabel,
+  btnIconSwitch,
+  btnDirection,
+  figcaption,
+  srcImg,
+  altImg,
+} = Astro.props;
+---
+
+<section aria-label="Pequeña introducción sobre mí" id="about">
+  <article class="wrapper-content">
+    <p>{description}</p>
+    <GhostButton
+      href={btnHref}
+      label={btnLabel}
+      icon={btnIconSwitch}
+      direction={btnDirection}
+    />
+  </article>
+  <figure class="wrapper-img">
+    <figcaption>{figcaption}</figcaption>
+    <img class="about-img" src={srcImg} alt={altImg} loading="lazy" />
+  </figure>
+</section>

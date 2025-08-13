@@ -23,6 +23,7 @@ body {
   background-color: var(--color-bg);
   color: var(--color-primary-text);
   font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regualar);
 }
 
 /* Mejora para imágenes y medios */
